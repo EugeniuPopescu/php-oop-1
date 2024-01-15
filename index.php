@@ -26,26 +26,35 @@ require __DIR__ . "/data.php";
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
-    <div>
-        <h2>Movies</h2>
+    <div class="container">
+        <div class="row">
+            <h1>Movies</h1>
+        </div>
 
-        <?php
-        foreach ($movies as $movie) {
-        ?>
-            <div>
-                <h3> <?= $movie->title ?> </h3>
-                <span>GENERE:</span>
-                <?php
-                echo implode(", ", $movie->gener)
-                ?>
-            </div>
-        <?php
-        }
-        ?>
+        <div class="row">
+            <?php foreach ($movies as $movie) { ?>
+                <div class="col-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h3> <?= $movie->title ?> </h3>
+                            <p>Lingua: <?= $movie->language ?></p>
+                            <p>Paese: <?= $movie->nation ?></p>
+                            <p>Anno: <?= $movie->year ?></p>
+
+                            <span>GENERE: </span>
+                            <?php echo implode(", ", $movie->gener) // implode -> prende un array e lo formatta come stringa 
+                            ?>
+                        </div>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
     </div>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
 </html>
