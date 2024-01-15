@@ -8,7 +8,7 @@ class Movie
     public $year;
     public $gener;
 
-    public function __construct($titolo, $lingua, $paese, $anno, $genere)
+    public function __construct($titolo, $lingua, $paese, $anno, array $genere)
     {
         $this->title = $titolo;
         $this->language = $lingua;
